@@ -3,6 +3,8 @@ const request = require("supertest");
 const app = require("../src/app");
 const knex = require("../src/db/connection");
 
+jest.setTimeout(60000); //NEEDED TO RUN TESTS WITH A LONGER TIMEOUT!
+
 describe("US-04 - Seat reservation", () => {
   beforeAll(() => {
     return knex.migrate
@@ -118,7 +120,7 @@ describe("US-04 - Seat reservation", () => {
       test("returns 400 if capacity is not a number", async () => {
         const data = {
           table_name: "table name",
-          capacity: "2",
+          people: "2",
         };
 
         const response = await request(app)

@@ -1,0 +1,8 @@
+@media all and (max-width: 960px) {
+    .reservation-item-button {
+      display: flex;
+      flex-direction: column;
+      width: 70px;
+      height: 30%;
+    }
+  }
